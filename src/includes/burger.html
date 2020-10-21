@@ -1,0 +1,48 @@
+<section id="burger" class="mtl">
+    <h2 class="sg-title">burger button</h2>
+    <p>Un élément possédant la classe
+        <code>.nav-button</code> et contenant un élément vide devient un bouton de navigation stylé et prêt à l'action
+        (avec un peu de renfort de JavaScript
+        ou CSS pour déclencher l'événement bien sûr).</p>
+    <p class="mbm">Pour des raisons d'accessibilité, il est fortement recommandé d'utiliser la structure HTML ci-dessous
+        pour votre bouton.</p>
+    <button class="nav-button" type="button" role="button" aria-label="open/close navigation">
+        <i></i>
+    </button>
+    <pre
+            class="mts"><code>&lt;button class=&quot;nav-button&quot; type=&quot;button&quot; role=&quot;button&quot; aria-label=&quot;open/close navigation&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/button&gt;</code></pre>
+
+    <p>Voici le bout de code JavaScript employé pour activer ce bouton&nbsp;</p>
+    <pre><code>&lt;script&gt;
+/**!
+Navigation Button Toggle class
+*/
+(function() {
+
+// old browser or not ?
+if ( !('querySelector' in document &amp;&amp; 'addEventListener' in window) ) {
+return;
+}
+window.document.documentElement.className += ' js-enabled';
+
+function toggleNav() {
+
+// Define targets by their class or id
+var button = document.querySelector('.nav-button');
+var target = document.querySelector('body &gt; nav');
+
+// click-touch event
+if ( button ) {
+  button.addEventListener('click',
+  function (e) {
+      button.classList.toggle('is-active');
+    target.classList.toggle('is-opened');
+    e.preventDefault();
+  }, false );
+}
+} // end toggleNav()
+
+toggleNav();
+}());
+&lt;/script&gt;</code></pre>
+</section>

@@ -1,0 +1,29 @@
+<section id="typo" class="mtl">
+    <h2 class="sg-title">fontes</h2>
+    <p>Trois variables sont prévues pour les familles de police. La première,
+        <code>$font-stack-common</code>, est appliquée par défaut sur le contenu. Il s'agit de ce que l'on appelle la
+        <a href="https://css-tricks.com/snippets/css/system-font-stack/">System Font Stack</a>, déjà adoptée par des sites
+        tels que Medium, Booking, WordPress, Alsacréations, etc.</p>
+    <p>Les voici en oeuvre&nbsp;:</p>
+    <blockquote>
+        <p style="font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif">
+            Ici un texte de contenu en $font-stack-common. Lorem Elsass Ipsum mitt picon bière munster du ftomi! Ponchour
+            bisame.
+            Bibbeleskaas jetz here's some code rossbolla sech choucroute un schwanz geburtstàg</p>
+    </blockquote>
+    <pre><code>$font-stack-common: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;</code></pre>
+
+    <blockquote>
+        <p style="font-family: sans-serif">Ici un texte de contenu en $font-stack-headings. Lorem Elsass Ipsum mitt picon
+            bière munster du ftomi! Ponchour bisame.
+            Bibbeleskaas jetz here's some code rossbolla sech choucroute un schwanz geburtstàg</p>
+    </blockquote>
+    <pre><code>$font-stack-headings: sans-serif;</code></pre>
+
+    <blockquote>
+        <p style="font-family: consolas, courier, monospace">Ici un texte de contenu en $font-stack-monospace. Lorem
+            Elsass Ipsum mitt picon bière munster du ftomi! Ponchour bisame.
+            Bibbeleskaas jetz here's some code rossbolla sech choucroute un schwanz geburtstàg</p>
+    </blockquote>
+    <pre><code>$font-stack-monospace: consolas, courier, monospace;</code></pre>
+</section>

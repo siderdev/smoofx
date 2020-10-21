@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SMOOFX documentation</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/guide.css">
+</head>
+<body>
+    <h1>SMOOFX v0.1 documentation</h1>
+
+    <!-- Navigation -->
+<nav class="bg-danger">
+    <a href="#intro">Introduction</a>
+    <a href="#install">Installation</a>
+    <a href="#colors">Couleurs</a>
+    <a href="#typo">Typographie et listes</a>
+    <a href="#tables">Tableaux</a>
+    <a href="#citations">Citations</a>
+    <a href="#alerts">Alertes</a>
+    <a href="#inputs">Inputs - Checkboxes - Radios - Selects</a>
+    <a href="#arrows">Flèches</a>
+    <a href="#buttons">Boutons</a>
+    <a href="#tags">Tags - Badges</a>
+    <a href="#tabs">Tabs</a>
+    <a href="#alignments">Alignements</a>
+    <a href="#flexbox">Flexbox</a>
+    <a href="#grids">Grilles (Grillade)</a>
+    <a href="#mixins">Variables - Mixins</a>
+    <a href="#images">Image responsive</a>
+    <a href="#collapse">Collapse</a>
+    <a href="#modal">Modal</a>
+    <a href="#tooltip">Tooltip</a>
+</nav>
+
+    <!-- Intro section -->
+<section id="intro" class="mtl">
+    <h2 class="sg-title">introduction</h2>
+    <p>
+        Smoofx, c’est un peu comme une feuille de style
+        <abbr title="Cascading Style Sheets" lang="en">CSS</abbr> «&nbsp;reset&nbsp;» sur-vitaminée qui permet de
+        commencer un projet à partir de zéro tout en tenant compte de bonnes pratiques générales (accessibilité,
+        performance, responsive webdesign).<br>
+        Smoofx est basé sur <a href="https://www.knacss.com/" title="Site de KNACSS">KNACSS</a> v7.
+    </p>
+    <p>KNACSS prend en charge les styles de base, mais également la typographie, les modèles de boîte, les alignements
+        et positionnements
+        d’éléments, les grilles de mise en page, dans l’esprit d’être adapté à toutes les tailles d’écran (responsive). Le
+        tout automatiquement, en l'appliquant simplement sur votre structure
+        <abbr title="HyperText Markup Language" lang="en">HTML</abbr>.</p>
+</section>
+
+    <!-- Install section -->
+<section id="install" class="mtl">
+    <h2 class="sg-title">installation</h2>
+    <p>Il y a deux moyens d'installer Smoofx&nbsp;: la version "prêt à consommer" et la version "à compiler". Seule la
+        deuxième est configurable.<br>Smoofx nécessite <a href="assets/js/jquery.min.js">jQuery</a> v3.4.1 minimum.</p>
+    <h3 class="sg-title">version "prêt à consommer"</h3>
+    <p>Cette version n'est pas configurable et nécessite d'être utiliser telle quel.</p>
+    <p>Smoofx n'est constitué que d'un seul fichier CSS et d'un seul fichier JS&nbsp;:</p>
+    <ul>
+        <li>le <a href="assets/css/styles.min.css">CSS minifiée</a></li>
+        <li>et le <a href="assets/js/global.min.js">JS minifiée</a></li>
+    </ul>
+
+    <p>Pour information, Autoprefixer est activé sur cette version de KNACSS et la liste des navigateurs supportés
+        (Browserslist) est&nbsp;</p>
+    <pre><code>[
+      '&gt; 1%',
+      'last 2 versions',
+      'IE &gt;= 10', 'Edge &gt;= 16',
+      'Chrome &gt;= 60',
+      'Firefox &gt;= 50', 'Firefox ESR',
+      'Safari &gt;= 10',
+      'ios_saf &gt;= 10',
+      'Android &gt;= 5'];</code></pre>
+
+
+    <h3 class="sg-title">version "à compiler"</h3>
+    <p>Le fichier source principal est
+        <code>src/assets/sass/styles.scss</code>, c'est lui qui se charge de l'import des vendors, variables, mixins et
+        tous les fichiers de styles du projet. C'est ce fichier qu'il faut compiler.</p>
+    <p>KNACSS est compiler avec Gulp (les fichiers
+        <code>gulpfile.js</code> et
+        <code>package.json</code> sont fournis).</p>
+    <div class="alert--primary">
+        <p>Les fichiers de configuration
+            <i>_config/_variables.scss</i> et
+            <i>_config/_mixins.scss</i> devront être copiés dans votre propre dossier de travail (et modifiés avec vos
+            propres valeurs) afin de ne pas être écrasés lors de chaque mise à jour de KNACSS via NPM.</p>
+    </div>
+    <p>KNACSS fourni un
+        <a href="https://www.knacss.com/assets/pdf/knacss7-cheatsheet.pdf">
+            <strong>Pense-bête en PDF</strong>
+        </a> pour vous souvenir des classes utiles.</p>
+</section>
+
+
+    <!-- Color section -->
+<section id="colors" class="mtl">
+    <h2 class="sg-title">couleurs</h2>
+    <p>Ci-dessous, la palette de couleurs employée de base sur Smoofx, ainsi que les noms de variables Scss associées.
+    </p>
+    <h3 class="sg-title mtm">color names</h3>
+    <ul class="colors">
+        <li>
+            <span class="bg-white">#fff<br>.bg-white</span>
+            <b>$white</b>
+        </li>
+        <li>
+            <span class="bg-gray-100">#f8f9fa<br>.bg-gray-100</span>
+            <b>$gray-100</b>
+        </li>
+        <li>
+            <span class="bg-gray-200">#e7e9ed<br>.bg-gray-200</span>
+            <b>$gray-200</b>
+        </li>
+        <li>
+            <span class="bg-gray-300">#dee2e6<br>.bg-gray-300</span>
+            <b>$gray-300</b>
+        </li>
+        <li>
+            <span class="bg-gray-400">#ced4da<br>.bg-gray-400</span>
+            <b>$gray-400</b>
+        </li>
+        <li>
+            <span class="bg-gray-500">#acb3c2<br>.bg-gray-500</span>
+            <b>$gray-500</b>
+        </li>
+        <li>
+            <span class="bg-gray-600">#727e96<br>.bg-gray-600</span>
+            <b>$gray-600</b>
+        </li>
+        <li>
+            <span class="bg-gray-700" style="color: #fff;">#454d5d<br>.bg-gray-700</span>
+            <b>$gray-700</b>
+        </li>
+        <li>
+            <span class="bg-gray-800" style="color: #fff;">#333<br>.bg-gray-800</span>
+            <b>$gray-800</b>
+        </li>
+        <li>
+            <span class="bg-gray-900" style="color: #fff;">#212529<br>.bg-gray-900</span>
+            <b>$gray-900</b>
+        </li>
+        <li>
+            <span class="bg-black" style="color: #fff;">#000<br>.bg-black</span>
+            <b>$black</b>
+        </li>
+
+        <li style="grid-column: 1">
+            <span style="background-color: #007BFF; color: #fff;">#007BFF</span>
+            <b>$blue-300</b>
+        </li>
+        <li>
+            <span style="background-color: #142B70; color: #fff">#142B70</span>
+            <b>$blue-500</b>
+        </li>
+        <li>
+            <span style="background-color: #28A745; color: #fff">#28A745</span>
+            <b>$green-500</b>
+        </li>
+        <li>
+            <span style="background-color: #FFAE42; color: #fff">#FFAE42</span>
+            <b>$orange-500</b>
+        </li>
+        <li>
+            <span style="background-color: #DC3545; color: #fff">#DC3545</span>
+            <b>$red-500</b>
+        </li>
+        <li>
+            <span style="background-color: #4652A0; color: #fff">#4652A0</span>
+            <b>$purple-500</b>
+        </li>
+    </ul>
+
+    <h3 class="sg-title mtl">semantic colors</h3>
+    <ul class="colors">
+        <li>
+            <span class="bg-brand" style="color: #fff">$green-500<br>.bg-brand<br>.color-brand</span>
+            <b>$color-brand</b>
+        </li>
+        <li>
+            <span class="bg-primary" style="color: #fff">$blue-500<br>.bg-primary<br>.color-primary</span>
+            <b>$color-primary</b>
+        </li>
+        <li>
+            <span class="bg-success" style="color: #fff">$green-500<br>.bg-success<br>.color-success</span>
+            <b>$color-success</b>
+        </li>
+        <li>
+            <span class="bg-info" style="color: #fff">$blue-300<br>.bg-info<br>.color-info</span>
+            <b>$color-info</b>
+        </li>
+        <li>
+            <span class="bg-warning" style="color: #fff">$orange-500<br>.bg-warning<br>.color-warning</span>
+            <b>$color-warning</b>
+        </li>
+        <li>
+            <span class="bg-danger" style="color: #fff">$red-500<br>.bg-danger<br>.color-danger</span>
+            <b>$color-danger</b>
+        </li>
+        <li>
+            <span class="bg-comflower" style="color: #fff">$purple-500<br>.bg-comflower<br>.color-comflower</span>
+            <b>$color-comflower</b>
+        </li>
+        <li>
+            <span class="bg-inverse" style="color: #fff">$gray-800<br>.bg-inverse<br>.color-inverse</span>
+            <b>$color-inverse</b>
+        </li>
+        <li>
+            <span style="">transparent</span>
+            <b>$color-ghost</b>
+        </li>
+        <li>
+            <span style="background-color: #e7e9ed;">$gray-200</span>
+            <b>$color-muted</b>
+        </li>
+        <li style="grid-column: 1">
+            <span style="background-color: #212529; color: #fff">$gray-900</span>
+            <b>$color-base</b>
+        </li>
+        <li>
+            <span style="background-color: #fff;">$white</span>
+            <b>$background-base</b>
+        </li>
+        <li>
+            <span class="bg-comflower" style="color: #fff">$color-comflower</span>
+            <b>$link-color</b>
+        </li>
+        <li>
+            <span style="background-color: #2f376b; color: #fff">darken($link-color, 15%)</span>
+            <b>$link-color-hover</b>
+        </li>
+        <li>
+            <span style="background-color: #333; color: #fff">$gray-800</span>
+            <b>$forms-color</b>
+        </li>
+
+        <li style="grid-column: 1">
+            <span class="bg-gray-lightest">#F4F5F8<br>.bg-gray-lightest</span>
+            <b>$gray-lightest</b>
+        </li>
+        <li>
+            <span class="bg-gray-light">#0000000D<br>.bg-gray-light</span>
+            <b>$gray-light</b>
+        </li>
+        <li>
+            <span class="bg-gray">#00000033<br>.bg-gray</span>
+            <b>$gray</b>
+        </li>
+        <li>
+            <span class="bg-gray-dark" style="color: #fff;">#5C666F<br>.bg-gray-dark</span>
+            <b>$gray-dark</b>
+        </li>
+    </ul>
+</section>
+
+    <!-- Font section -->
+<section id="typo" class="mtl">
+    <h2 class="sg-title">fontes</h2>
+    <p>Trois variables sont prévues pour les familles de police. La première,
+        <code>$font-stack-common</code>, est appliquée par défaut sur le contenu. Il s'agit de ce que l'on appelle la
+        <a href="https://css-tricks.com/snippets/css/system-font-stack/">System Font Stack</a>, déjà adoptée par des sites
+        tels que Medium, Booking, WordPress, Alsacréations, etc.</p>
+    <p>Les voici en oeuvre&nbsp;:</p>
+    <blockquote>
+        <p style="font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif">
+            Ici un texte de contenu en $font-stack-common. Lorem Elsass Ipsum mitt picon bière munster du ftomi! Ponchour
+            bisame.
+            Bibbeleskaas jetz here's some code rossbolla sech choucroute un schwanz geburtstàg</p>
+    </blockquote>
+    <pre><code>$font-stack-common: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;</code></pre>
+
+    <blockquote>
+        <p style="font-family: sans-serif">Ici un texte de contenu en $font-stack-headings. Lorem Elsass Ipsum mitt picon
+            bière munster du ftomi! Ponchour bisame.
+            Bibbeleskaas jetz here's some code rossbolla sech choucroute un schwanz geburtstàg</p>
+    </blockquote>
+    <pre><code>$font-stack-headings: sans-serif;</code></pre>
+
+    <blockquote>
+        <p style="font-family: consolas, courier, monospace">Ici un texte de contenu en $font-stack-monospace. Lorem
+            Elsass Ipsum mitt picon bière munster du ftomi! Ponchour bisame.
+            Bibbeleskaas jetz here's some code rossbolla sech choucroute un schwanz geburtstàg</p>
+    </blockquote>
+    <pre><code>$font-stack-monospace: consolas, courier, monospace;</code></pre>
+</section>
+
+    <!-- Titles section -->
+<section id="titles" class="mtl">
+    <h2 class="sg-title">titres</h2>
+    <p>Les six niveaux de titre sont stylés avec leurs éléments respectifs&nbsp;:
+        <code>h1</code> à
+        <code>h6</code>, ou (recommandé) les classes
+        <code>.h1-like</code> à
+        <code>.h6-like</code>.</p>
+    <h1>titre niveau 1</h1>
+    <h2>titre niveau 2</h2>
+    <h3>titre niveau 3</h3>
+    <h4>titre niveau 4</h4>
+    <h5>titre niveau 5</h5>
+    <h6>titre niveau 6</h6>
+    <p class="h1-like">paragraphe stylé comme un titre 1</p>
+
+    <pre><code>&lt;h1&gt;titre niveau 1&lt;/h1&gt;
+&lt;h2&gt;titre niveau 2&lt;/h2&gt;
+&lt;h3&gt;titre niveau 3&lt;/h3&gt;
+&lt;h4&gt;titre niveau 4&lt;/h4&gt;
+&lt;h5&gt;titre niveau 5&lt;/h5&gt;
+&lt;h6&gt;titre niveau 6&lt;/h6&gt;
+&lt;p class="h1-like"&gt;paragraphe stylé comme un titre 1&lt;/p&gt;
+</code></pre>
+</section>
+
+    <!-- Paragraph section -->
+<section id="paragraph" class="mtl">
+    <h2 class="sg-title">paragraphes et textes</h2>
+    <p>Lorem Elsass Ipsum mitt picon bière munster du ftomi!
+        <a href="#">Je suis un lien</a> Ponchour bisame. Bibbeleskaas
+        <mark>je suis marqué</mark> jetz rossbolla sech
+        <em>je suis un &lt;em&gt;</em> choucroute un schwanz geburtstàg, Je suis une touche
+        <kbd>du clavier</kbd> Chinette dû, ìch bier deppfele schiesser. Flammekueche de knèkes Seppele gal! a hopla
+        geburtstàg,
+        <strong>je suis un &lt;strong&gt;</strong> alles fraü Chulia Roberts
+        <code>je suis du code</code> oder knäckes dûû blottkopf.</p>
+    <pre><code>&lt;p&gt;Lorem Elsass Ipsum mitt picon bière munster du ftomi! &lt;a href="#"&gt;Je suis un lien&lt;/a&gt; Ponchour bisame. Bibbeleskaas &lt;mark&gt;je suis marqué&lt;/mark&gt; jetz rossbolla sech &lt;em&gt;je suis un &lt;em&gt;&lt;/em&gt; choucroute un schwanz geburtstàg, Je suis une touche &lt;kbd&gt;du clavier&lt;/kbd&gt; Chinette dû, ìch bier deppfele schiesser. Flammekueche de knèkes Seppele gal! a hopla geburtstàg, &lt;strong&gt;je suis un &lt;strong&gt;&lt;/strong&gt; alles fraü Chulia Roberts &lt;code&gt;je suis du code&lt;/code&gt; oder knäckes dûû blottkopf.&lt;/p&gt;</code></pre>
+</section>
+
+    <!-- Lists section -->
+<section id="lists" class="mtl">
+    <h2 class="sg-title">listes</h2>
+    <ul>
+        <li>Liste non ordonnée</li>
+        <li>Salade</li>
+        <li>Tomate</li>
+        <li>Oignon</li>
+        <li>Choucroute</li>
+    </ul>
+
+    <ol>
+        <li>Liste ordonnée</li>
+        <li>Salade</li>
+        <li>Tomate</li>
+        <li>Oignon</li>
+        <li>Choucroute</li>
+    </ol>
+
+    <ul class="unstyled">
+        <li>Liste
+            <code>.unstyled</code> ou
+            <code>.is-unstyled</code>
+        </li>
+        <li>Salade</li>
+        <li>Tomate</li>
+        <li>Oignon</li>
+        <li>Choucroute</li>
+    </ul>
+    <pre><code>&lt;ul&gt;
+    &lt;li&gt;Liste non ordonnée&lt;/li&gt;
+    &lt;li&gt;Salade&lt;/li&gt;
+    &lt;li&gt;Tomate&lt;/li&gt;
+    &lt;li&gt;Oignon&lt;/li&gt;
+    &lt;li&gt;Choucroute&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Liste ordonnée&lt;/li&gt;
+    &lt;li&gt;Salade&lt;/li&gt;
+    &lt;li&gt;Tomate&lt;/li&gt;
+    &lt;li&gt;Oignon&lt;/li&gt;
+    &lt;li&gt;Choucroute&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul class="unstyled"&gt;
+    &lt;li&gt;Liste &lt;code&gt;.unstyled&lt;/code&gt;&lt;/li&gt;
+    &lt;li&gt;Salade&lt;/li&gt;
+    &lt;li&gt;Tomate&lt;/li&gt;
+    &lt;li&gt;Oignon&lt;/li&gt;
+    &lt;li&gt;Choucroute&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</section>
+
+    <!-- Tables section -->
+<section id="tables" class="mtl">
+    <h2 class="sg-title">tableaux</h2>
+    <p class="mbl">Les tableaux de données disposent de styles de base. Ceux munis d'une classe
+        <code>.table</code> bénéficient en sus de propriétés graphiques définies selon des variables de projet dédiées :
+        couleur de fond, des
+        titres, etc. La classe additionnelle
+        <code>.table--zebra</code> colorie une rangée sur deux.
+    </p>
+
+    <table class="table" summary="">
+        <caption>.table</caption>
+        <thead>
+        <tr>
+            <th scope="col">Fruit</th>
+            <th scope="col">Note</th>
+            <th scope="col">Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Kiwi</td>
+            <td>★★★</td>
+            <td>13.37€</td>
+        </tr>
+        <tr>
+            <td>Banane</td>
+            <td>★★</td>
+            <td>0.42€</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>Voici la structure HTML permettant d'obtenir ce résultat&nbsp;:</p>
+    <pre><code>&lt;table class="table" summary=""&gt;
+	&lt;caption&gt;.table&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th scope="col"&gt;Fruit&lt;/th&gt;
+			&lt;th scope="col"&gt;Note&lt;/th&gt;
+			&lt;th scope="col"&gt;Prix&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Kiwi&lt;/td&gt;
+			&lt;td&gt;★★★&lt;/td&gt;
+			&lt;td&gt;13.37€&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+			&lt;td&gt;Banane&lt;/td&gt;
+			&lt;td&gt;★★&lt;/td&gt;
+			&lt;td&gt;0.42€&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</section>
+
+    <!-- Citations section -->
+<section id="citations" class="mtl">
+    <h2 class="sg-title">citations</h2>
+    <blockquote>
+        <p>Lorem Elsass Ipsum mitt picon bière munster du ftomi! Ponchour bisame. Bibbeleskaas jetz here's some code
+            rossbolla
+            sech choucroute un schwanz geburtstàg</p>
+    </blockquote>
+    <pre><code>&lt;blockquote&gt;
+   &lt;p&gt;Lorem Elsass Ipsum mitt picon bière munster du ftomi! Ponchour bisame. Bibbeleskaas jetz here's some code rossbolla sech choucroute un schwanz geburtstàg&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+</section>
+
+    <!-- Alerts section -->
+<section id="alerts" class="mtl">
+    <h2 class="sg-title">alertes</h2>
+    <p>Une alerte est une boîte d'information disposant de la classe
+        <code>.alert</code> (pour les styles par défaut) ou une classe commençant par
+        <code>.alert--</code> pour les différentes variantes
+        <code>.alert--primary</code>,
+        <code>.alert--success</code>,
+        <code>.alert--warning</code>,
+        <code>.alert--danger</code>,
+        <code>.alert--info</code>,
+        <code>.alert--inverse</code>,
+        <code>.alert--ghost</code>.</p>
+    <p>Les variantes sont gérées par un ensemble (thème) de variables comprenant : couleur de fond, couleur de texte et
+        bordure
+        optionnelle.</p>
+
+
+    <div class="alert">Alert Default</div>
+    <div class="alert--primary">Primary</div>
+    <div class="alert--success">Success</div>
+    <div class="alert--warning">Warning</div>
+    <div class="alert--danger">Danger</div>
+    <div class="alert--info">Info</div>
+    <div class="alert--inverse">Inverse</div>
+    <div class="bg-comflower" style="padding: 1rem; margin-top: 1rem">
+        <div class="alert--ghost" style="margin-top: 0">Ghost</div>
+    </div>
+    <pre><code>&lt;div class="alert"&gt;Alert Default&lt;/div&gt;
+&lt;div class="alert--primary"&gt;Primary&lt;/div&gt;
+&lt;div class="alert--success"&gt;Success&lt;/div&gt;
+&lt;div class="alert--warning"&gt;Warning&lt;/div&gt;
+&lt;div class="alert--danger"&gt;Danger&lt;/div&gt;
+&lt;div class="alert--info"&gt;Info&lt;/div&gt;
+&lt;div class="alert--inverse"&gt;Inverse&lt;/div&gt;
+&lt;div class="bg-comflower"&gt;&lt;div class="alert--ghost"&gt;Ghost&lt;/div&gt;&lt;/div&gt;</code></pre>
+</section>
+
+    <!-- Inputs section -->
+<section id="inputs" class="mtl">
+    <h2 class="sg-title">inputs</h2>
+    <input type="text" placeholder="text">
+    <input type="search" placeholder="search">
+    <input type="number" placeholder="number">
+    <input type="email" placeholder="email">
+    <input type="password" value="password">
+    <progress></progress>
+    <pre><code>&lt;input type="text" placeholder="text"&gt;
+&lt;input type="search" placeholder="search"&gt;
+&lt;input type="number" placeholder="number"&gt;
+&lt;input type="email" placeholder="email"&gt;
+&lt;input type="password" value="password"&gt;
+&lt;progress&gt;&lt;/progress&gt;</code></pre>
+</section>
+
+    <!-- Checkboxes section -->
+<section id="checkboxes" class="mtl">
+    <h2 class="sg-title">checkboxes</h2>
+    <p>KNACSS prend en compte les styles de base des cases à cocher, il suffit d'appliquer la classe
+        <code>.checkbox</code> sur l'élément
+        <code>input</code> afin de le voir en action.</p>
+    <p>Voici le code HTML recommandé :
+        <code>&lt;input type="checkbox" class="checkbox" id="c1"&gt;&lt;label for="c1"&gt;click here&lt;/label&gt;</code>
+    </p>
+    <form action="#">
+        <ul class="is-unstyled">
+            <li>
+                <input type="checkbox" class="checkbox" id="c1">
+                <label for="c1">Salade</label>
+            </li>
+            <li>
+                <input type="checkbox" class="checkbox" id="c2" checked="checked">
+                <label for="c2">Tomate</label>
+            </li>
+            <li>
+                <input type="checkbox" class="checkbox" id="c3" disabled="disabled">
+                <label for="c3">Oignon</label>
+            </li>
+        </ul>
+    </form>
+    <pre><code>&lt;form action="#"&gt;
+  &lt;ul class="is-unstyled"&gt;
+    &lt;li&gt;
+      &lt;input type="checkbox" class="checkbox" id="c1"&gt;
+      &lt;label for="c1"&gt;Salade&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;input type="checkbox" class="checkbox" id="c2" checked="checked"&gt;
+      &lt;label for="c2"&gt;Tomate&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;input type="checkbox" class="checkbox" id="c3" checked="checked" disabled="disabled"&gt;
+      &lt;label for="c3"&gt;Oignon&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;input type="checkbox" class="checkbox" id="c4" disabled="disabled"&gt;
+      &lt;label for="c4"&gt;Choucroute&lt;/label&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;</code></pre>
+</section>
+
+    <!-- Radios section -->
+<section id="radios" class="mtl">
+    <h2 class="sg-title">radios</h2>
+    <p>KNACSS prend en compte les styles de base des boutons radio, il suffit d'appliquer la classe
+        <code>.radio</code> sur l'élément
+        <code>input</code> afin de le voir en action.</p>
+    <p>Voici le code HTML recommandé :
+        <code>&lt;input type=&quot;radio&quot; class=&quot;radio&quot; name=&quot;radio&quot; id=&quot;r1&quot;&gt;&lt;label for=&quot;r1&quot;&gt;Click here&lt;/label&gt;</code>
+    </p>
+    <form action="#">
+        <ul class="is-unstyled">
+            <li>
+                <input type="radio" class="radio" name="radio" id="r1">
+                <label for="r1">Salade</label>
+            </li>
+            <li>
+                <input type="radio" class="radio" name="radio" id="r2" checked="checked">
+                <label for="r2">Tomate</label>
+            </li>
+            <li>
+                <input type="radio" class="radio" name="radio" id="r3" disabled="disabled">
+                <label for="r3">Oignon</label>
+            </li>
+        </ul>
+    </form>
+
+    <pre><code>&lt;form action=&quot;#&quot;&gt;
+  &lt;ul class=&quot;is-unstyled&quot;&gt;
+    &lt;li&gt;
+      &lt;input type=&quot;radio&quot; class=&quot;radio&quot; name=&quot;radio&quot; id=&quot;r1&quot;&gt;
+      &lt;label for=&quot;r1&quot;&gt;Salade&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;input type=&quot;radio&quot; class=&quot;radio&quot; name=&quot;radio&quot; id=&quot;r2&quot; checked=&quot;checked&quot;&gt;
+      &lt;label for=&quot;r2&quot;&gt;Tomate&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;input type=&quot;radio&quot; class=&quot;radio&quot; name=&quot;radio&quot; id=&quot;r3&quot; checked=&quot;checked&quot; disabled=&quot;disabled&quot;&gt;
+      &lt;label for=&quot;r3&quot;&gt;Oignon&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;input type=&quot;radio&quot; class=&quot;radio&quot; name=&quot;radio&quot; id=&quot;r4&quot; disabled=&quot;disabled&quot;&gt;
+      &lt;label for=&quot;r4&quot;&gt;Choucroute&lt;/label&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;</code></pre>
+</section>
+
+    <!-- Switchs section -->
+<section id="switches" class="mtl">
+    <h2 class="sg-title">switchs</h2>
+    <p>Les boutons de switch (ou toggle) sont gérés à l'aide de la classe
+        <code>.switch</code> sur l'élément
+        <code>input checkbox</code>.</p>
+    <p>Voici le code HTML recommandé :
+        <code>&lt;input type=&quot;checkbox&quot; class=&quot;switch&quot; id=&quot;switch&quot;&gt;
+            &lt;label for=&quot;switch&quot; class=&quot;label&quot;&gt;slide to unlock&lt;/label&gt;</code>
+    </p>
+    <div>
+        <input type="checkbox" class="switch" id="switch">
+        <label for="switch" class="label">slide to unlock</label>
+    </div>
+    <pre><code>&lt;input type=&quot;checkbox&quot; class=&quot;switch&quot; id=&quot;switch&quot;&gt;
+&lt;label for=&quot;switch&quot; class=&quot;label&quot;&gt;slide to unlock&lt;/label&gt;</code></pre>
+</section>
+
+    <!-- Selects section -->
+<section id="selects" class="mtl">
+    <h2 class="sg-title">selects</h2>
+    <p class="mbm">Les éléments
+        <code>&lt;select&gt;</code> sont automatiquement stylés dans KNACSS. Vous pouvez adapter les styles de base en
+        modifiant les variables du projet.</p>
+    <select>
+        <option value="valeur1">Salade</option>
+        <option value="valeur2">Tomate</option>
+        <option value="valeur3">Oignon</option>
+    </select>
+    <pre class="mts"><code>&lt;select&gt;
+  &lt;option value=&quot;valeur1&quot;&gt;Salade&lt;/option&gt;
+  &lt;option value=&quot;valeur2&quot;&gt;Tomate&lt;/option&gt;
+  &lt;option value=&quot;valeur3&quot;&gt;Oignon&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+</section>
+
+    <!-- Arrows section -->
+<section id="arrows" class="mtl">
+    <h2 class="sg-title">flèches / arrows</h2>
+    <p>Quatre classes sont prévues pour afficher des flèches décoratives à droite de n'importe quel élément. Il s'agit
+        de
+        <code>icon-arrow--down</code>,
+        <code>icon-arrow--up</code>,
+        <code>icon-arrow--right</code> et
+        <code>icon-arrow--left</code>. Si vous souhaitez que la flèche apparaisse à gauche, appliquez la classe
+        <code>.flex-row-reverse</code> sur le parent.</p>
+    <p class="alert--warning">Attention, les flèches "arrows" se basent sur les masques CSS, actuellement incompatibles
+        avec IE / Edge.</p>
+    <p>arrow down
+        <i class="icon-arrow--down"></i>
+    </p>
+    <p>arrow up
+        <i class="icon-arrow--up"></i>
+    </p>
+    <p>arrow right
+        <i class="icon-arrow--right"></i>
+    </p>
+    <p>arrow left
+        <i class="icon-arrow--left"></i>
+    </p>
+    <p class="flex-row-reverse">arrow left
+        <i class="icon-arrow--left"></i>
+    </p>
+    <pre><code>&lt;p&gt;icon-arrow down &lt;i class=&quot;icon-arrow--down&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;icon-arrow up &lt;i class=&quot;icon-arrow--up&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;icon-arrow right &lt;i class=&quot;icon-arrow--right&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;icon-arrow left &lt;i class=&quot;icon-arrow--left&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+&lt;p class=&quot;flex-row-reverse&quot;&gt;icon-arrow left &lt;i class=&quot;icon-arrow--left&quot;&gt;&lt;/i&gt;&lt;/p&gt;</code></pre>
+</section>
+
+    <!-- Buttons section -->
+<section id="buttons" class="mtl">
+    <h2 class="sg-title">boutons</h2>
+    <p>Les boutons, comme les alertes disposent d'un ensemble de thème de couleurs (couleur de fond, couleur de texte et
+        bordure
+        optionnelle).</p>
+    <p>Il est recommandé d'utiliser l'élément HTML
+        <code>&lt;button&gt;</code>, mais rien n'empêche d'opter pour d'autres types d'éléments, tant qu'ils sont associés
+        à l'attribut ARIA
+        <code>role=&quot;button&quot;</code> </p>
+    <p>Un bouton dispose de la classe
+        <code>.btn</code> ou
+        <code>.button</code> (pour les styles par défaut) ou une classe commençant par
+        <code>.btn--</code> ou
+        <code>.button--</code> pour les différentes variantes, par exemple
+        <code>.btn--primary</code>,
+        <code>.btn--success</code>,
+        <code>.btn--warning</code>,
+        <code>.btn--danger</code>,
+        <code>.btn--info</code>,
+        <code>.btn--inverse</code>,
+        <code>.btn--ghost</code>.</p>
+    <p>Les classes <code>.btn--small</code> et <code>.btn--big</code> permettent respectivement de bénéficier d'un bouton
+        plus petit ou plus gros.</p>
+    <div class="mtm">
+        <button class="btn">Button Default</button>
+        <button class="btn--primary btn--small">Primary</button>
+        <button class="btn--success btn--big">Success</button>
+        <input class="btn--warning" type="button" value="Warning">
+        <span class="btn--danger">Danger</span>
+        <span class="btn--info">Info</span>
+        <span class="btn--inverse">Inverse</span>
+        <div style="background: #555; padding: 1rem; margin-top: 1rem">
+            <button class="btn--ghost">Ghost</button>
+        </div>
+    </div>
+    <pre><code>&lt;button class=&quot;btn&quot;&gt;Button Default&lt;/button&gt;
+&lt;button class=&quot;btn--primary btn--small&quot;&gt;Primary&lt;/button&gt;
+&lt;button class=&quot;btn--success btn--big&quot;&gt;Success&lt;/button&gt;
+&lt;input  class=&quot;btn--warning&quot; type=&quot;button&quot; role=&quot;button&quot; value=&quot;Warning&quot;&gt;
+&lt;span class=&quot;btn--danger&quot; role=&quot;button&quot;&gt;Danger&lt;/span&gt;
+&lt;span class=&quot;btn--info&quot; role=&quot;button&quot;&gt;Info&lt;/span&gt;
+&lt;span class=&quot;btn--inverse&quot; role=&quot;button&quot;&gt;Inverse&lt;/span&gt;
+&lt;button class=&quot;btn--ghost&quot;&gt;Ghost&lt;/button&gt;</code></pre>
+</section>
+
+    <!-- Tags section -->
+<section id="tags" class="mtl">
+    <h2 class="sg-title">tags (étiquette)</h2>
+    <p>Un tag dispose de la classe
+        <code>.tag</code> (pour les styles par défaut) ou une classe commençant par
+        <code>.tag--</code> pour les différentes variantes, par exemple
+        <code>.tag--primary</code>,
+        <code>.tag--success</code>,
+        <code>.tag--warning</code>,
+        <code>.tag--danger</code>,
+        <code>.tag--info</code>,
+        <code>.tag--inverse</code>,
+        <code>.tag--ghost</code>.</p>
+    <p>Les classes <code>.tag--small</code> et <code>.tag--big</code> permettent respectivement de bénéficier d'un tag
+        plus petit ou plus gros.</p>
+
+    <div class="mtm">
+        <button class="tag">Tag Default</button>
+        <button class="tag--primary tag--small">Primary</button>
+        <button class="tag--success tag--big">Success</button>
+        <span class="tag--warning">Warning</span>
+        <span class="tag--danger">Danger</span>
+        <span class="tag--info">Info</span>
+        <span class="tag--inverse">Inverse</span>
+    </div>
+
+    <pre><code>&lt;button class=&quot;tag&quot;&gt;Badge Default&lt;/button&gt;
+&lt;button class=&quot;tag--primary tag--small&quot;&gt;Primary&lt;/button&gt;
+&lt;button class=&quot;tag--success tag--big&quot;&gt;Success&lt;/button&gt;
+&lt;span class=&quot;tag--warning&quot;&gt;Warning&lt;/span&gt;
+&lt;span class=&quot;tag--danger&quot;&gt;Danger&lt;/span&gt;
+&lt;span class=&quot;tag--info&quot;&gt;Info&lt;/span&gt;
+&lt;span class=&quot;tag--inverse&quot;&gt;Inverse&lt;/span&gt;</code></pre>
+</section>
+
+    <!-- Badges section -->
+<section id="badges" class="mtl">
+    <h2 class="sg-title">badges (arrondis)</h2>
+    <p>Un badge est systématiquement rond et s'adapte à son contenu. Il dispose de la classe
+        <code>.badge</code> (pour les styles par défaut) ou une classe commençant par
+        <code>.badge--</code> pour les différentes variantes, par exemple
+        <code>.badge--primary</code>,
+        <code>.badge--success</code>,
+        <code>.badge--warning</code>,
+        <code>.badge--danger</code>,
+        <code>.badge--info</code>,
+        <code>.badge--inverse</code>,
+        <code>.badge--ghost</code>.</p>
+    <p>Les classes <code>.badget--small</code> et <code>.badget--big</code> permettent respectivement de bénéficier d'un
+        badge plus petit ou plus gros.</p>
+
+    <div class="mtm mbm">
+        <button class="badge">Badge Default</button>
+        <button class="badge--primary">Primary</button>
+        <button class="badge--success">Success</button>
+        <span class="badge--warning">Warning</span>
+        <span class="badge--danger">Danger</span>
+        <span class="badge--info">Info</span>
+        <span class="badge--inverse">Inverse</span>
+        <button class="badge--primary">-20%</button>
+    </div>
+
+    <pre><code>&lt;button class=&quot;badge&quot;&gt;Badge Default&lt;/button&gt;
+&lt;button class=&quot;badge--primary&quot;&gt;Primary&lt;/button&gt;
+&lt;button class=&quot;badge--success&quot;&gt;Success&lt;/button&gt;
+&lt;span class=&quot;badge--warning&quot;&gt;Warning&lt;/span&gt;
+&lt;span class=&quot;badge--danger&quot;&gt;Danger&lt;/span&gt;
+&lt;span class=&quot;badge--info&quot;&gt;Info&lt;/span&gt;
+&lt;span class=&quot;badge--inverse&quot;&gt;Inverse&lt;/span&gt;</code></pre>
+</section>
+
+    <!-- Burger section -->
+<section id="burger" class="mtl">
+    <h2 class="sg-title">burger button</h2>
+    <p>Un élément possédant la classe
+        <code>.nav-button</code> et contenant un élément vide devient un bouton de navigation stylé et prêt à l'action
+        (avec un peu de renfort de JavaScript
+        ou CSS pour déclencher l'événement bien sûr).</p>
+    <p class="mbm">Pour des raisons d'accessibilité, il est fortement recommandé d'utiliser la structure HTML ci-dessous
+        pour votre bouton.</p>
+    <button class="nav-button" type="button" role="button" aria-label="open/close navigation">
+        <i></i>
+    </button>
+    <pre
+            class="mts"><code>&lt;button class=&quot;nav-button&quot; type=&quot;button&quot; role=&quot;button&quot; aria-label=&quot;open/close navigation&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/button&gt;</code></pre>
+
+    <p>Voici le bout de code JavaScript employé pour activer ce bouton&nbsp;</p>
+    <pre><code>&lt;script&gt;
+/**!
+Navigation Button Toggle class
+*/
+(function() {
+
+// old browser or not ?
+if ( !('querySelector' in document &amp;&amp; 'addEventListener' in window) ) {
+return;
+}
+window.document.documentElement.className += ' js-enabled';
+
+function toggleNav() {
+
+// Define targets by their class or id
+var button = document.querySelector('.nav-button');
+var target = document.querySelector('body &gt; nav');
+
+// click-touch event
+if ( button ) {
+  button.addEventListener('click',
+  function (e) {
+      button.classList.toggle('is-active');
+    target.classList.toggle('is-opened');
+    e.preventDefault();
+  }, false );
+}
+} // end toggleNav()
+
+toggleNav();
+}());
+&lt;/script&gt;</code></pre>
+</section>
+
+    <!-- Tabs section -->
+<section id="tabs" class="mtl">
+    <h2 class="sg-title">tabs / onglets</h2>
+    <p>KNACSS prévoit des styles pour une navigation à base d'onglets accessibles (fonctionnels aux flèches du clavier
+        et à
+        la souris). Le principe général est de placer la classe
+        <code>.js-tabs</code> sur le conteneur global.
+        <br>Les instructions complètes, le code HTML et JavaScript se trouvent sur le projet d'Alsacréations
+        <a href="https://github.com/alsacreations/pepin/tree/master/tabs">
+            <em>Pepin</em>
+        </a>.</p>
+    <p class="mbm">Attention : pour fonctionner, les onglets nécessitent un code JavaScript (à récupérer sur Pepin).</p>
+
+    <div class="tabs js-tabs">
+        <nav class="tabs-menu">
+            <a href="#tab1" class="tabs-menu-link is-active">Salade</a>
+            <a href="#tab2" class="tabs-menu-link">Tomate</a>
+            <a href="#tab3" class="tabs-menu-link">Oignons</a>
+        </nav>
+
+        <div class="tabs-content">
+            <div id="tab1" class="tabs-content-item">Contenu 1.
+                <br>Lorem Elsass Ipsum mitt picon bière munster du ftomi! Ponchour bisame. Bibbeleskaas jetz rossbolla sech
+                choucroute
+                un schwanz geburtstàg, Chinette dû, ìch bier deppfele schiesser.</div>
+            <div id="tab2" class="tabs-content-item">Contenu 2.
+                <br>Flammekueche de knèkes Seppele gal! a hopla geburtstàg, alles fraü Chulia Roberts oder knäckes dûû
+                blottkopf. Noch
+                bredele schissabibala, yeuh e schmutz.</div>
+            <div id="tab3" class="tabs-content-item">Contenu 3.
+                <br>E gewurtztraminer doch Carola schneck, schmutz a riesling de chambon eme rucksack Roger dû hopla geiss,
+                jetz Chorchette
+                de Scharrarbergheim.</div>
+        </div>
+    </div>
+
+    <pre class="mtm"><code>&lt;div class=&quot;tabs js-tabs&quot;&gt;
+  &lt;nav class=&quot;tabs-menu&quot;&gt;
+    &lt;a href=&quot;#tab1&quot; class=&quot;tabs-menu-link is-active&quot;&gt;Salade&lt;/a&gt;
+    &lt;a href=&quot;#tab2&quot; class=&quot;tabs-menu-link&quot;&gt;Tomate&lt;/a&gt;
+    &lt;a href=&quot;#tab3&quot; class=&quot;tabs-menu-link&quot;&gt;Oignons&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;div class=&quot;tabs-content&quot;&gt;
+    &lt;div id=&quot;tab1&quot; class=&quot;tabs-content-item&quot;&gt;Contenu 1. &lt;br&gt;Lorem Elsass Ipsum mitt picon bi&egrave;re munster du ftomi! Ponchour bisame. Bibbeleskaas jetz rossbolla sech choucroute un schwanz geburtst&agrave;g, Chinette d&ucirc;, &igrave;ch bier deppfele schiesser.&lt;/div&gt;
+    &lt;div id=&quot;tab2&quot; class=&quot;tabs-content-item&quot;&gt;Contenu 2. &lt;br&gt;Flammekueche de kn&egrave;kes Seppele gal! a hopla geburtst&agrave;g, alles fra&uuml; Chulia Roberts oder kn&auml;ckes d&ucirc;&ucirc; blottkopf. Noch bredele schissabibala, yeuh e schmutz.&lt;/div&gt;
+    &lt;div id=&quot;tab3&quot; class=&quot;tabs-content-item&quot;&gt;Contenu 3. &lt;br&gt;E gewurtztraminer doch Carola schneck, schmutz a riesling de chambon eme rucksack Roger d&ucirc; hopla geiss, jetz Chorchette de Scharrarbergheim.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+    <!-- Alignments section -->
+<section id="alignments" class="mtl">
+    <h2 class="sg-title">alignements</h2>
+    <div class="align txtleft">
+        <span>span</span>
+        <a href="#">link</a>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;txtleft&quot;&gt;
+    &lt;span&gt;span&lt;/span&gt;
+    &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+
+    <div class="align txtcenter">
+        <span>span</span>
+        <a href="#">link</a>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;txtcenter&quot;&gt;
+    &lt;span&gt;span&lt;/span&gt;
+    &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+
+    <div class="align txtright">
+        <span>span</span>
+        <a href="#">link</a>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;txtright&quot;&gt;
+    &lt;span&gt;span&lt;/span&gt;
+    &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+
+    <div class="align">
+        <div style="width: 30%" class="left">div.left</div>
+    </div>
+    <pre
+            class="mbl"><code>&lt;div style=&quot;width: 30%&quot; class=&quot;left&quot;&gt;div.left&lt;/div&gt;</code></pre>
+
+    <div class="align">
+        <div style="width: 30%" class="center">div.center</div>
+    </div>
+    <pre
+            class="mbl"><code>&lt;div style=&quot;width: 30%&quot; class=&quot;center&quot;&gt;div.center&lt;/div&gt;</code></pre>
+
+    <div class="align">
+        <div style="width: 30%" class="right">div.right</div>
+    </div>
+    <pre
+            class="mbl"><code>&lt;div style=&quot;width: 30%&quot; class=&quot;right&quot;&gt;div.right&lt;/div&gt;</code></pre>
+
+</section>
+
+    <!-- Floats section -->
+<section id="floats" class="mtl">
+    <h2 class="sg-title">flottants</h2>
+
+    <div class="align clearfix">
+        <div style="width: 20%" class="fl">div.fl</div>
+        <div style="width: 20%" class="fr">div.fr</div>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;clearfix&quot;&gt;
+        &lt;div style=&quot;width: 20%&quot; class=&quot;fl&quot;&gt;div.fl&lt;/div&gt;
+        &lt;div style=&quot;width: 20%&quot; class=&quot;fr&quot;&gt;div.fr&lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+
+</section>
+
+    <!-- Flexboxes section -->
+<section id="flexbox" class="mtl">
+    <h2 class="sg-title">flexbox</h2>
+    <section class="align flex-container">
+        <div>div</div>
+        <span>span</span>
+        <em>&hellip;</em>
+    </section>
+    <pre class="mbl"><code>&lt;section class=&quot;flex-container&quot;&gt;
+  &lt;div&gt;div&lt;/div&gt;
+  &lt;span&gt;span&lt;/span&gt;
+  &lt;em&gt;&hellip;&lt;/em&gt;
+&lt;/section&gt;</code></pre>
+
+    <div class="align flex-container--column">
+        <div>div</div>
+        <span>span</span>
+        <em>&hellip;</em>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;flex-container--column&quot;&gt;
+&lt;div&gt;div&lt;/div&gt;
+&lt;span&gt;span&lt;/span&gt;
+&lt;em&gt;&hellip;&lt;/em&gt;
+&lt;/div&gt;</code></pre>
+
+    <div class="align flex-container">
+        <div class="w33">.w33</div>
+        <span class="w150p">.w150p</span>
+        <span class="flex-item-fluid">.item-fluid</span>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;flex-container&quot;&gt;
+  &lt;div class=&quot;w33&quot;&gt;.w33&lt;/div&gt;
+  &lt;span class=&quot;w150p&quot;&gt;.w150p&lt;/span&gt;
+  &lt;span class=&quot;item-fluid&quot;&gt;.item-fluid&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+    <div class="align flex-container">
+        <div>item</div>
+        <span>item</span>
+        <span class="item-first">.item-first</span>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;flex-container&quot;&gt;
+  &lt;div&gt;item&lt;/div&gt;
+  &lt;span&gt;item&lt;/span&gt;
+  &lt;span class=&quot;item-first&quot;&gt;.item-first&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+    <div class="align flex-container">
+        <div class="item-last">.item-last</div>
+        <span>item</span>
+        <span>item</span>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;flex-container&quot;&gt;
+  &lt;div class=&quot;item-last&quot;&gt;.item-last&lt;/div&gt;
+  &lt;span&gt;item&lt;/span&gt;
+  &lt;span&gt;item&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+    <div class="align flex-container" style="height: 200px;">
+        <span class="item-center">.item-center</span>
+    </div>
+    <pre class="mbl"><code>&lt;div class=&quot;flex-container&quot; style=&quot;height: 200px;&quot;&gt;
+  &lt;span class=&quot;item-center&quot;&gt;.item-center&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+</section>
+
+    <!-- Grids section -->
+<section id="grids" class="mtl">
+    <h2 class="sg-title">grillade</h2>
+    <p>
+        <strong>Grillade</strong>, le système de grille principal de KNACSS a été entièrement repensé pour les navigateurs
+        modernes.
+        Il est dorénavant bâti sur Grid Layout et non plus Flexbox. Grid Layout n'est pleinement compatible qu'à partir de
+        Edge 16, même si Autoprefixer est activé et <em>devrait</em> rendre la grille compatible sur IE10.</p>
+    <p>Par défaut, le nouveau système de grilles est automatiquement importé au sein de KNACSS,
+        <b>cependant les deux versions (nouvelle et ancienne en Flexbox) co-existent toujours pour des raisons de
+            compatibilité&nbsp;:</b>
+    </p>
+    <ul>
+        <li>
+            <code><a href="https://github.com/alsacreations/KNACSS/blob/master/sass/_library/grillade-grid.scss">grillade-grid.scss</a></code>
+            (nouvelle version en Grid Layout)</li>
+        <li>
+            <code><a href="https://github.com/alsacreations/KNACSS/blob/master/sass/_library/grillade-flex.scss">grillade-flex.scss</a></code>
+            (ancienne version en Flexbox)</li>
+    </ul>
+    <p> Ainsi, il est possible, en Sass, de remplacer le fichier importé "grillade-grid.scss" par l'ancienne version
+        "grillade-flex.scss"
+        pour assurer un support jusqu'à IE10 minimum. Les fichiers CSS compilés peuvent également être utilisés de manière
+        autonome&nbsp;:</p>
+    <ul>
+        <li>
+            <code><a href="https://github.com/alsacreations/KNACSS/blob/master/css/grillade-grid.css">grillade-grid.css</a></code>
+            (3ko)</li>
+        <li>
+            <code><a href="https://github.com/alsacreations/KNACSS/blob/master/css/grillade-flex.css">grillade-flex.css</a></code>
+            (11ko)</li>
+    </ul>
+    <p>
+        <strong>Grillade n'est pas un "framework"</strong>, il s'agit simplement de fonctionnalités basiques pour réaliser
+        des grilles
+        simples et courantes (et responsive).</p>
+    <p>Si vous avez besoin de grilles complexes :</p>
+    <ul>
+        <li>Utilisez la spécification
+            <a href="https://www.alsacreations.com/article/lire/1388-css3-grid-layout.html">CSS Grid Layout</a> (c'est fait
+            pour ça)</li>
+        <li>Utilisez la
+            <a href="http://getbootstrap.com/customize/">grille de Bootstrap</a> (bonne chance)</li>
+    </ul>
+    <p class="alert--primary">Les grilles ne s'activent qu'à partir d'un breakpoint minimum (
+        <code class="color--inverse">$tiny</code> = 480px par défaut). En deça, les éléments s'affichent en blocs, les uns
+        sous les autres.</p>
+
+    <table class="table table--zebra mtl" summary="">
+        <caption>comparaison entre Grillade v6 et Grillade v7</caption>
+        <thead>
+        <tr>
+            <td class="w20"></td>
+            <th scope="col">Grillade v6</th>
+            <th scope="col">Grillade v7</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Techno CSS employée</th>
+            <td>Flexbox</td>
+            <td>Grid Layout</td>
+        </tr>
+        <tr>
+            <th>Poids fichier CSS</th>
+            <td>11 Ko</td>
+            <td>3 Ko</td>
+        </tr>
+        <tr>
+            <th>Compatibilité</th>
+            <td>IE10+</td>
+            <td>Edge 16+ sûr<br>IE10 à tester</td>
+        </tr>
+        <tr>
+            <th>Fonctionnalités</th>
+            <td>Mobile first
+                <br>Largeurs fluides
+                <br>Gouttières
+                <br>Fusion de colonnes
+                <br>
+                <del>Fusion de rangées</del>
+                <br>Gestion des écrans intermédiaires
+                <br>
+                <del>Tailles d'enfants responsive</del>
+                <br>Ordonnancement des enfants</td>
+            <td>Mobile first
+                <br>Largeurs fluides
+                <br>Gouttières
+                <br>Fusion de colonnes
+                <br>Fusion de rangées
+                <br>Gestion des écrans intermédiaires
+                <br>Tailles d'enfants responsive
+                <br>Ordonnancement des enfants</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>Voici quelques exemples de grilles réalisées avec KNACSS v7…</p>
+
+    <h3 class="sg-title">.autogrid (ou .grid)</h3>
+    <p class="mbm">Une "autogrid" (classe
+        <code>.autogrid</code> ou
+        <code>.grid</code>) est une micro-grille où les enfants demeurent toujours sur une seule ligne et se répartissent
+        de façon équitable
+        quel que soit leur nombre. Il est possible d'appliquer une gouttière avec les classes
+        <code>.has-gutter</code>,
+        <code>.has-gutter-l</code>,
+        <code>.has-gutter-xl</code>.</p>
+    <section class="autogrid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </section>
+    <pre><code>&lt;section class="autogrid"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-6</h3>
+    <p class="mbm">Une grille de 6 colonnes, avec retour à la ligne possible, et sans gouttière</p>
+    <section class="grid-6">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </section>
+    <pre><code>&lt;section class="grid-6"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;6&lt;/div&gt;
+    &lt;div&gt;7&lt;/div&gt;
+    &lt;div&gt;8&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-6 .has-gutter</h3>
+    <p class="mbm">Une grille de 6 colonnes avec une gouttière. Les classes prévues sont
+        <code>.has-gutter</code>,
+        <code>.has-gutter-l</code>,
+        <code>.has-gutter-xl</code>
+    </p>
+    <section class="grid-6 has-gutter">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </section>
+    <pre><code>&lt;section class="grid-6 has-gutter"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;6&lt;/div&gt;
+    &lt;div&gt;7&lt;/div&gt;
+    &lt;div&gt;8&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-4 .has-gutter</h3>
+    <p class="mbm">Une grille de 4 colonnes avec une gouttière. Certains enfants s'étendent sur plusieurs colonnes ou
+        rangées.</p>
+    <section class="grid-4 has-gutter">
+        <div>1</div>
+        <div class="col-2">.col-2</div>
+        <div class="row-2">.row-2</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </section>
+    <pre><code>&lt;section class="grid-4 has-gutter"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div class="col-2"&gt;.col-2&lt;/div&gt;
+    &lt;div class="row-2"&gt;.row-2&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;6&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-6-small-3</h3>
+    <p class="mbm">Une grille de 6 colonnes sur grand écran, et 3 colonnes sur écran moyen.</p>
+    <section class="grid-6-small-3">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </section>
+    <pre><code>&lt;section class="grid-6-small-3"&gt;
+&lt;div&gt;1&lt;/div&gt;
+&lt;div&gt;2&lt;/div&gt;
+&lt;div&gt;3&lt;/div&gt;
+&lt;div&gt;4&lt;/div&gt;
+&lt;div&gt;5&lt;/div&gt;
+&lt;div&gt;6&lt;/div&gt;
+&lt;div&gt;7&lt;/div&gt;
+&lt;div&gt;8&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-7-small-4</h3>
+    <p class="mbm">Une grille de 7 colonnes sur grand écran, et 4 colonnes sur écran moyen. Quelques enfants changent de
+        taille sur écran
+        moyen</p>
+    <section class="grid-7-small-4">
+        <div>1</div>
+        <div>2</div>
+        <div class="col-2-small-1">.col-2-small-1</div>
+        <div>4</div>
+        <div>5</div>
+        <div class="col-1-small-2">.col-1-small-2</div>
+        <div>7</div>
+        <div class="col-2-small-all">.col-2-small-all</div>
+    </section>
+    <pre><code>&lt;section class="grid-7-small-4"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div class="col-2-small-1"&gt;.col-2-small-1&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div class="col-1-small-2"&gt;.col-1-small-2&lt;/div&gt;
+    &lt;div&gt;7&lt;/div&gt;
+    &lt;div class="col-2-small-all"&gt;.col-2-small-all&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-6-small-3 .has-gutter</h3>
+    <p class="mbm">Panachage des possibilités de grilles</p>
+    <section class="grid-6-small-3 has-gutter">
+        <div>1</div>
+        <div>2</div>
+        <div class="item-first">(3) item-first</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div class="col-3-small-2">col-3-small-2</div>
+        <div class="col-2-small-1">col-2-small-1</div>
+        <div class="col-2-small-1">col-2-small-1</div>
+        <div class="col-4-small-2">col-4-small-2</div>
+        <div class="row-2">row-2</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div class="col-3">col-3</div>
+        <div>18</div>
+        <div>19</div>
+        <div class="col-all">col-all</div>
+    </section>
+    <pre><code>&lt;section class="grid-6-small-3 has-gutter"&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div class="item-first"&gt;(3) item-first&lt;/div&gt;
+  &lt;div&gt;4&lt;/div&gt;
+  &lt;div&gt;5&lt;/div&gt;
+  &lt;div&gt;6&lt;/div&gt;
+  &lt;div&gt;7&lt;/div&gt;
+  &lt;div class="col-3-small-2"&gt;col-3-small-2&lt;/div&gt;
+  &lt;div class="col-2-small-1"&gt;col-2-small-1&lt;/div&gt;
+  &lt;div class="col-2-small-1"&gt;col-2-small-1&lt;/div&gt;
+  &lt;div class="col-4-small-2"&gt;col-4-small-2&lt;/div&gt;
+  &lt;div class="row-2"&gt;row-2&lt;/div&gt;
+  &lt;div&gt;13&lt;/div&gt;
+  &lt;div&gt;14&lt;/div&gt;
+  &lt;div&gt;15&lt;/div&gt;
+  &lt;div&gt;16&lt;/div&gt;
+  &lt;div class="col-3"&gt;col-3&lt;/div&gt;
+  &lt;div&gt;18&lt;/div&gt;
+  &lt;div&gt;19&lt;/div&gt;
+  &lt;div class="col-all"&gt;col-all&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</section>
+
+    <!-- Mixins section -->
+<section id="mixins" class="mtl">
+    <h2 class="sg-title">mixins</h2>
+    <p>Le fichier regroupant les mixins et fonctions Sass se nomme
+        <code>sass/_config/_mixins.scss</code>. Il contient des raccourcis Sass qui facilitent la vie de l'intégrateur.
+    </p>
+
+    <h3 class="sg-title">mixin "respond-to()"</h3>
+    <p>Ce mixin permet de faciliter et d'harmoniser les points de ruptures. Écrivez ceci dans votre fichier Sass&nbsp;:
+    </p>
+    <pre><code>p {
+  color: blue;
+  @include respond-to("small-up") {
+    color: hotpink;
+  }
+}</code></pre>
+    <p>Le résultat après compilation sera&nbsp;:</p>
+    <pre><code>p {
+  color: blue;
+}
+@media (min-width: 576px) {
+  p {
+    color: hotpink;
+  }
+}</code></pre>
+    <p>Les paramètres et les intervales correspondants sont&nbsp;:</p>
+    <pre><code>$bp-aliases: (
+  'tiny'   : (max-width: #{$tiny - 1}),
+  'small'  : (max-width: #{$small - 1}),
+  'medium' : (max-width: #{$medium - 1}),
+  'large' : (max-width: #{$large - 1}),
+  'extra-large'  : (max-width: #{$extra-large - 1}),
+  'tiny-up'   : (min-width: #{$tiny}),
+  'small-up'  : (min-width: #{$small}),
+  'medium-up' : (min-width: #{$medium}),
+  'large-up' : (min-width: #{$large}),
+  'extra-large-up' : (min-width: #{$extra-large}),
+  'retina' : (min-resolution: 2dppx)
+);</code></pre>
+
+    <h3 class="sg-title">mixin "grid()"</h3>
+    <p>Ce mixin de trois paramètres optionnels permet de générer une grille simple et rapide. Écrivez ceci dans votre
+        fichier
+        Sass&nbsp;:</p>
+    <pre><code>.ingrid {
+  @include grid(4, 1rem, 640px);
+}</code></pre>
+    <p>Le résultat après compilation sera&nbsp;:</p>
+    <pre><code>@media (min-width: 640px) {
+  .ingrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
+}
+</code></pre>
+
+    <h3 class="sg-title">mixin "font-size()"</h3>
+    <p>Ce mixin permet de gérer les tailles d'éléments autant mobiles que desktop. Écrivez ceci dans votre fichier
+        Sass&nbsp;:</p>
+    <pre><code>h2 {
+  @include font-size(h2);
+}</code></pre>
+    <p>Le résultat après compilation sera&nbsp;:</p>
+    <pre><code>h2 {
+  font-size: 2.4rem;
+}
+@media (min-width: 576px) {
+  h2 {
+    font-size: 2.8rem;
+  }
+}</code></pre>
+    <p>Les éléments prévus pour être ciblés par ce mixin sont&nbsp;: base (police générale), h1, h2, h3, h4, h5 et h6.
+        Les valeurs
+        de polices de tous ces éléments sont indiquées dans le fichier de variables du projet.</p>
+</section>
+
+    <!-- Varibales section -->
+<section id="variables" class="mtl">
+    <h2 class="sg-title">variables</h2>
+    <p>Le fichier permettant de configurer l'ensemble des variables du projet se nomme
+        <code>sass/_config/_variables.scss</code>. Il est fortement conseillé de modifier ce fichier avec vos propres
+        valeurs, plutôt que de les écraser par la suite.</p>
+
+    <pre><code>// Config file and project variables
+
+// ----------------
+// Breakpoints zone
+// ----------------
+
+// Warning: you should use your own values, regardless of the devices
+// Best practice is Mobile First: (min-width: $breakpoint)
+$tiny        : 480px !default; // or 'em' if you prefer, of course
+$small       : 576px !default;
+$medium      : 768px !default;
+$large       : 992px !default;
+$extra-large : 1200px !default;
+
+// ----------
+// Fonts zone
+// ----------
+
+// Font families
+$font-family-base     : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !default; // system font stack
+$font-family-headings  : sans-serif !default; // font for h1, h2.. h6
+$font-family-monospace : consolas, courier, monospace !default; // font for code and samples
+
+// Font sizes (1.6rem value is "16px" equivalent)
+$font-size-base : 1.6rem !default;
+
+$font-sizes: (
+  base: (
+    mobile  : 1.4rem,
+    desktop : $font-size-base
+  ),
+  h1: (
+    mobile  : 2.8rem,
+    desktop : 3.2rem
+  ),
+  h2: (
+    mobile  : 2.4rem,
+    desktop : 2.8rem
+  ),
+  h3: (
+    mobile  : 2.0rem,
+    desktop : 2.4rem
+  ),
+  h4: (
+    mobile  : 1.8rem,
+    desktop : 2.0rem
+  ),
+  h5: (
+    mobile  : 1.6rem,
+    desktop : 1.8rem
+  ),
+  h6: (
+    mobile  : 1.4rem,
+    desktop : 1.6rem
+  )
+) !default;
+
+// Line heights
+$line-height-s    : 1.3 !default;
+$line-height-base : 1.5 !default;
+$line-height-l    : 1.7 !default;
+
+// Default margin-bottom
+$margin-bottom-base     : 1rem !default;
+$headings-margin-bottom : $margin-bottom-base /2 !default;
+$paragraph-margin-bottom: $margin-bottom-base !default;
+
+// Font weights
+$weight-light   : 200 !default;
+$weight-book    : 300 !default;
+$weight-regular : 400 !default;
+$weight-medium  : 500 !default;
+$weight-bold    : 700 !default;
+
+// Activate hyphenation on small screens
+$hyphens: false !default;
+
+// ------------
+// Spacing zone
+// ------------
+
+// Grid gutters (for .has-gutter-* classes)
+$grid-gutters: (
+  '': 1rem,
+  '-l': 2rem,
+  '-xl': 4rem
+) !default;
+
+// Spacings
+$spacer-tiny             : .5rem  !default;
+$spacer-tiny-plus        : .7rem !default;
+$spacer-small            : 1rem !default;
+$spacer-small-plus       : 1.5rem !default;
+$spacer-medium           : 2rem !default;
+$spacer-medium-plus      : 3rem !default;
+$spacer-large            : 4rem !default;
+$spacer-large-plus       : 6rem !default;
+$spacer-extra-large      : 8rem !default;
+$spacer-extra-large-plus : 12rem !default;
+$spacer-ultra-large      : 16rem !default;
+$spacer-ultra-large-plus : 20rem !default;
+
+// z-indexes
+$zindex-navigation   : 1000 !default;
+$zindex-dropdown     : 2000 !default;
+$zindex-popover      : 3000 !default;
+$zindex-tooltip      : 4000 !default;
+$zindex-modal        : 5000 !default;
+$zindex-notification : 6000 !default;
+$zindex-debug        : 7000 !default;
+
+// ----------
+// Color zone
+// ----------
+
+// Color names
+$white    : #fff !default;
+$gray-100 : #f8f9fa !default;
+$gray-200 : #e7e9ed !default;
+$gray-300 : #dee2e6 !default;
+$gray-400 : #ced4da !default;
+$gray-500 : #acb3c2 !default;
+$gray-600 : #727e96 !default;
+$gray-700 : #454d5d !default;
+$gray-800 : #333 !default;
+$gray-900 : #212529 !default;
+$black    : #000 !default;
+
+/* KNACSS DEFAULT
+$blue-300   : #5BC0DE !default;
+$blue-500   : #0275D8 !default;
+$green-500  : #0C8A0C !default;
+$orange-500 : #F0AD4E !default;
+$red-500    : #CD4A47 !default; // suffisamment contrasté comme couleur de fond avec un texte blanc
+*/
+// Serrurerie Default
+$blue-300   : #007BFF !default;
+$blue-500   : #142B70 !default;
+$green-500  : #28A745 !default;
+$orange-500 : #FFAE42 !default;
+$red-500    : #DC3545 !default;
+$purple-500 : #4652A0 !default;
+
+// Semantic colors
+$color-brand    : $orange-500;
+$color-primary  : $blue-500;
+$color-success  : $green-500;
+$color-info     : $blue-300;
+$color-warning  : $orange-500;
+$color-danger   : $red-500;
+$color-inverse  : $gray-800;
+$color-ghost    : transparent;
+$color-muted    : $gray-200;
+// Serrurerie add
+$color-comflower: $purple-500;
+
+// (modifié pour bretzel)
+$brand-primary: $color-primary !default;;
+// $brand-primary-light : #4F842A !default;
+// $brand-primary-dark : #4F842A !default;
+$brand-secondary: #0B7EB5 !default;;
+// $brand-secondary-light: #0B7EB5 !default;
+// $brand-secondary-dark: #0B7EB5 !default;
+
+/* KNACSS Default
+$gray-dark: $gray-800;
+$gray-light: $gray-500; // was #a0a0a0;
+$gray-lightest: $gray-100; // was #f5f5f5;*/
+$gray-lightest : #F4F5F8;
+$gray-light    : #0000000D;
+$gray          : #00000033;
+$gray-dark     : #5C666F;
+
+$gray-a11y: #767676;
+
+
+$color-base      : $gray-900;
+$background-base : $white;
+
+// Links
+$link-color            : $color-comflower;
+$link-color-hover      : darken($link-color, 15%);
+$link-decoration       : none; // et non underline, valeur par défaut de KNACSS. Les liens ayant un parent avec la classe .content sont soulignés par Bretzel.
+$link-decoration-hover : underline;
+
+$forms-color     : $gray-800;
+
+// ---------------
+// Components zone
+// ---------------
+
+// Global border-radius
+$border-radius: 0 !default;
+
+// Component: quotes
+$quote-color     : $gray-200;
+
+// Component: arrows
+$arrow-color     : $black;
+
+// Components: checkboxes, radios, switches
+$checkbox-color: $white;
+$checkbox-background: $gray-800;
+$checkbox-size: 2rem;
+$checkbox-border-radius: 4px;
+$radio-color: $gray-800;
+$radio-background: $white;
+$switch-color: $white;
+$switch-background: $gray-800;
+$switch-size: 2rem;
+$switch-border-radius: 3em;
+
+// Component: tables
+$table-border               : $gray-500;
+$table-caption-color        : $gray-800;
+$table-background           : transparent;
+$table-head-color           : $color-base;
+$table-head-background      : transparent;
+$table-footer-color         : $color-base;
+$table-footer-background    : transparent;
+
+// Components: buttons, badges, alerts color variants list
+// Convention is: name - background-color - color - border
+$variants-list: (
+  (primary,    $color-primary,    $white,    none),
+  (success,    $color-success,    $white,    none),
+  (info,       $color-info,       $black,    none), // Texte noir parce qu'un fond bleu ciel suffisamment contrasté avec un texte blanc n'est pas souhaitable
+  (warning,    $color-warning,    $black,    none), // Texte noir parce qu'un fond orange suffisamment contrasté avec un texte blanc n'est plus vraiment orange…
+  (danger,     $color-danger,     $white,    none),
+  (comflower,  $color-comflower,  $white,    none),
+  (inverse,    $color-inverse,    $white,    none),
+  (ghost,      $color-ghost,      $white,    0 0 0 1px $white inset)
+) !default;
+
+// Component: tabs
+$tabs-border            : $gray-200;
+$tabs-active-border     : $gray-800;
+$tabs-color             : $color-base;
+$tabs-active-color      : $gray-800;
+$tabs-background        : transparent;
+$tabs-active-background : transparent;
+$tabs-border-radius     : 0;
+
+// Component: nav burger button
+$burger-color             : $gray-800;
+$burger-background        : transparent;
+$burger-hover-background  : transparent;
+$burger-size              : 2.6rem;
+$burger-weight            : 5px; // size of stripes
+$burger-padding           : 0;
+
+// Component: Border radius for buttons and tags
+$border-radius-small: 1.5rem;
+$border-radius-normal: 2.5rem;
+$border-radius-big: 3.5rem;
+
+// Component: Bootstrap modal variables
+// Padding applied to the modal body
+$modal-inner-padding:               1rem !default;
+
+// Margin between elements in footer, must be lower than or equal to 2 * $modal-inner-padding
+$modal-footer-margin-between:       .5rem !default;
+
+$modal-dialog-margin:               .5rem !default;
+$modal-dialog-margin-y-sm-up:       1.75rem !default;
+
+$modal-title-line-height:           $line-height-base !default;
+
+$modal-content-color:               null !default;
+$modal-content-bg:                  $white !default;
+$modal-content-border-color:        rgba($black, .2) !default;
+$modal-content-border-width:        1px !default;
+$modal-content-border-radius:       .3rem !default;
+$modal-content-inner-border-radius: subtract(.3rem, $modal-content-border-width) !default;
+$modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .5) !default;
+$modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .5) !default;
+
+$modal-backdrop-bg:                 $black !default;
+$modal-backdrop-opacity:            .5 !default;
+$modal-header-border-color:         $gray-300 !default;
+$modal-footer-border-color:         $modal-header-border-color !default;
+$modal-header-border-width:         $modal-content-border-width !default;
+$modal-footer-border-width:         $modal-header-border-width !default;
+$modal-header-padding-y:            1rem !default;
+$modal-header-padding-x:            1rem !default;
+$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
+
+$modal-xl:                          1140px !default;
+$modal-lg:                          800px !default;
+$modal-md:                          500px !default;
+$modal-sm:                          300px !default;
+
+$modal-fade-transform:              translate(0, -50px) !default;
+$modal-show-transform:              none !default;
+$modal-transition:                  transform .3s ease-out !default;
+$modal-scale-transform:             scale(1.02) !default;</code></pre>
+</section>
+
+    <!-- Varibales section -->
+<section id="images" class="mtl">
+    <h2 class="sg-title">image responsive</h2>
+    <p class="mbl">Les images sont naturellement responsive, il n'y a rien de particulier à faire.<br>
+    <pre><code>&lt;img src=&quot;https://loremflickr.com/g/1920/1080/cat,fight/all&quot;&gt;</code></pre></p>
+    <img src="https://loremflickr.com/g/1920/1080/cat,fight/all">
+</section>
+
+
+    <!-- Collapse section -->
+<section id="collapse" class="mtl">
+    <h2 class="sg-title">collapse</h2>
+    <p>
+        Collapse bootstrap 4, <a href="https://getbootstrap.com/docs/4.4/components/collapse/" title="Documentation collapse bootstrap">documentation</a> directement sur le site de bootstrap
+    </p>
+    <p>
+        <pre><code>&lt;p&gt;
+        &lt;a class=&quot;btn--comflower&quot; data-toggle=&quot;collapse&quot; href=&quot;#collapseExample&quot; role=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseExample&quot;&gt;
+            Link with href
+        &lt;/a&gt;
+        &lt;button class=&quot;btn--comflower&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#collapseExample&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseExample&quot;&gt;
+            Button with data-target
+        &lt;/button&gt;
+    &lt;/p&gt;
+    &lt;div class=&quot;collapse&quot; id=&quot;collapseExample&quot;&gt;
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    &lt;/div&gt;</code></pre>
+    </p>
+    <p>
+        <a class="btn--comflower" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Link with href
+        </a>
+        <button class="btn--comflower" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Button with data-target
+        </button>
+    </p>
+    <div class="alert--success collapse" id="collapseExample">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    </div>
+</section>
+
+    <!-- Modal section -->
+<section id="modal" class="mtl">
+    <h2 class="sg-title">modal</h2>
+    <p>
+        Modal bootstrap 4, <a href="https://getbootstrap.com/docs/4.4/components/modal/" title="Documentation modal bootstrap">documentation</a> directement sur le site de bootstrap
+    </p>
+    <p>
+        <pre><code>&lt;!-- Button trigger modal --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn--comflower&quot; data-toggle=&quot;modal&quot; data-target=&quot;#exampleModal&quot;&gt;
+    Launch demo modal
+&lt;/button&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;exampleModal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+                &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Modal title&lt;/h5&gt;
+                &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;
+                    &lt;span aria-hidden=&quot;true&quot;&gt;&times;&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;
+                Woohoo, you're reading this text in a modal!
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </p>
+    <p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn--comflower" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Woohoo, you're reading this text in a modal!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn--primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p>
+</section>
+
+    <!-- Tooltip section -->
+<section id="tooltip" class="mtl">
+    <h2 class="sg-title">tooltip</h2>
+    <p>
+        Tooltip bootstrap 3, <a href="https://getbootstrap.com/docs/3.4/javascript/#tooltips" title="Documentation tooltip bootstrap">documentation</a> directement sur le site de bootstrap
+    </p>
+    <p>
+        <pre><code>        &lt;button type=&quot;button&quot; class=&quot;btn--comflower&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;left&quot; title=&quot;Tooltip on left&quot;&gt;Tooltip on left&lt;/button&gt;
+
+        &lt;button type=&quot;button&quot; class=&quot;btn--comflower&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;top&quot; title=&quot;Tooltip on top&quot;&gt;Tooltip on top&lt;/button&gt;
+
+        &lt;button type=&quot;button&quot; class=&quot;btn--comflower&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;bottom&quot; title=&quot;Tooltip on bottom&quot;&gt;Tooltip on bottom&lt;/button&gt;
+
+        &lt;button type=&quot;button&quot; class=&quot;btn--comflower&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;right&quot; title=&quot;Tooltip on right&quot;&gt;Tooltip on right&lt;/button&gt;
+
+        &lt;button type=&quot;button&quot; class=&quot;btn--comflower&quot; data-toggle=&quot;tooltip&quot; data-html=&quot;true&quot; title=&quot;&lt;em&gt;Tooltip&lt;/em&gt; &lt;u&gt;with&lt;/u&gt; &lt;b&gt;HTML&lt;/b&gt;&quot;&gt;Tooltip with HTML&lt;/button&gt;</code></pre>
+    </p>
+    <p>
+        <button type="button" class="btn--comflower" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+
+        <button type="button" class="btn--comflower" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+
+        <button type="button" class="btn--comflower" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+
+        <button type="button" class="btn--comflower" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+
+        <button type="button" class="btn--comflower" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">Tooltip with HTML</button>
+    </p>
+</section>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/global.min.js"></script>
+</body>
+</html>

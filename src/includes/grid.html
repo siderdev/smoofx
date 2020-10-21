@@ -1,0 +1,287 @@
+<section id="grids" class="mtl">
+    <h2 class="sg-title">grillade</h2>
+    <p>
+        <strong>Grillade</strong>, le système de grille principal de KNACSS a été entièrement repensé pour les navigateurs
+        modernes.
+        Il est dorénavant bâti sur Grid Layout et non plus Flexbox. Grid Layout n'est pleinement compatible qu'à partir de
+        Edge 16, même si Autoprefixer est activé et <em>devrait</em> rendre la grille compatible sur IE10.</p>
+    <p>Par défaut, le nouveau système de grilles est automatiquement importé au sein de KNACSS,
+        <b>cependant les deux versions (nouvelle et ancienne en Flexbox) co-existent toujours pour des raisons de
+            compatibilité&nbsp;:</b>
+    </p>
+    <ul>
+        <li>
+            <code><a href="https://github.com/alsacreations/KNACSS/blob/master/sass/_library/grillade-grid.scss">grillade-grid.scss</a></code>
+            (nouvelle version en Grid Layout)</li>
+        <li>
+            <code><a href="https://github.com/alsacreations/KNACSS/blob/master/sass/_library/grillade-flex.scss">grillade-flex.scss</a></code>
+            (ancienne version en Flexbox)</li>
+    </ul>
+    <p> Ainsi, il est possible, en Sass, de remplacer le fichier importé "grillade-grid.scss" par l'ancienne version
+        "grillade-flex.scss"
+        pour assurer un support jusqu'à IE10 minimum. Les fichiers CSS compilés peuvent également être utilisés de manière
+        autonome&nbsp;:</p>
+    <ul>
+        <li>
+            <code><a href="https://github.com/alsacreations/KNACSS/blob/master/css/grillade-grid.css">grillade-grid.css</a></code>
+            (3ko)</li>
+        <li>
+            <code><a href="https://github.com/alsacreations/KNACSS/blob/master/css/grillade-flex.css">grillade-flex.css</a></code>
+            (11ko)</li>
+    </ul>
+    <p>
+        <strong>Grillade n'est pas un "framework"</strong>, il s'agit simplement de fonctionnalités basiques pour réaliser
+        des grilles
+        simples et courantes (et responsive).</p>
+    <p>Si vous avez besoin de grilles complexes :</p>
+    <ul>
+        <li>Utilisez la spécification
+            <a href="https://www.alsacreations.com/article/lire/1388-css3-grid-layout.html">CSS Grid Layout</a> (c'est fait
+            pour ça)</li>
+        <li>Utilisez la
+            <a href="http://getbootstrap.com/customize/">grille de Bootstrap</a> (bonne chance)</li>
+    </ul>
+    <p class="alert--primary">Les grilles ne s'activent qu'à partir d'un breakpoint minimum (
+        <code class="color--inverse">$tiny</code> = 480px par défaut). En deça, les éléments s'affichent en blocs, les uns
+        sous les autres.</p>
+
+    <table class="table table--zebra mtl" summary="">
+        <caption>comparaison entre Grillade v6 et Grillade v7</caption>
+        <thead>
+        <tr>
+            <td class="w20"></td>
+            <th scope="col">Grillade v6</th>
+            <th scope="col">Grillade v7</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Techno CSS employée</th>
+            <td>Flexbox</td>
+            <td>Grid Layout</td>
+        </tr>
+        <tr>
+            <th>Poids fichier CSS</th>
+            <td>11 Ko</td>
+            <td>3 Ko</td>
+        </tr>
+        <tr>
+            <th>Compatibilité</th>
+            <td>IE10+</td>
+            <td>Edge 16+ sûr<br>IE10 à tester</td>
+        </tr>
+        <tr>
+            <th>Fonctionnalités</th>
+            <td>Mobile first
+                <br>Largeurs fluides
+                <br>Gouttières
+                <br>Fusion de colonnes
+                <br>
+                <del>Fusion de rangées</del>
+                <br>Gestion des écrans intermédiaires
+                <br>
+                <del>Tailles d'enfants responsive</del>
+                <br>Ordonnancement des enfants</td>
+            <td>Mobile first
+                <br>Largeurs fluides
+                <br>Gouttières
+                <br>Fusion de colonnes
+                <br>Fusion de rangées
+                <br>Gestion des écrans intermédiaires
+                <br>Tailles d'enfants responsive
+                <br>Ordonnancement des enfants</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>Voici quelques exemples de grilles réalisées avec KNACSS v7…</p>
+
+    <h3 class="sg-title">.autogrid (ou .grid)</h3>
+    <p class="mbm">Une "autogrid" (classe
+        <code>.autogrid</code> ou
+        <code>.grid</code>) est une micro-grille où les enfants demeurent toujours sur une seule ligne et se répartissent
+        de façon équitable
+        quel que soit leur nombre. Il est possible d'appliquer une gouttière avec les classes
+        <code>.has-gutter</code>,
+        <code>.has-gutter-l</code>,
+        <code>.has-gutter-xl</code>.</p>
+    <section class="autogrid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </section>
+    <pre><code>&lt;section class="autogrid"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-6</h3>
+    <p class="mbm">Une grille de 6 colonnes, avec retour à la ligne possible, et sans gouttière</p>
+    <section class="grid-6">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </section>
+    <pre><code>&lt;section class="grid-6"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;6&lt;/div&gt;
+    &lt;div&gt;7&lt;/div&gt;
+    &lt;div&gt;8&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-6 .has-gutter</h3>
+    <p class="mbm">Une grille de 6 colonnes avec une gouttière. Les classes prévues sont
+        <code>.has-gutter</code>,
+        <code>.has-gutter-l</code>,
+        <code>.has-gutter-xl</code>
+    </p>
+    <section class="grid-6 has-gutter">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </section>
+    <pre><code>&lt;section class="grid-6 has-gutter"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;6&lt;/div&gt;
+    &lt;div&gt;7&lt;/div&gt;
+    &lt;div&gt;8&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-4 .has-gutter</h3>
+    <p class="mbm">Une grille de 4 colonnes avec une gouttière. Certains enfants s'étendent sur plusieurs colonnes ou
+        rangées.</p>
+    <section class="grid-4 has-gutter">
+        <div>1</div>
+        <div class="col-2">.col-2</div>
+        <div class="row-2">.row-2</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </section>
+    <pre><code>&lt;section class="grid-4 has-gutter"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div class="col-2"&gt;.col-2&lt;/div&gt;
+    &lt;div class="row-2"&gt;.row-2&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;6&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-6-small-3</h3>
+    <p class="mbm">Une grille de 6 colonnes sur grand écran, et 3 colonnes sur écran moyen.</p>
+    <section class="grid-6-small-3">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </section>
+    <pre><code>&lt;section class="grid-6-small-3"&gt;
+&lt;div&gt;1&lt;/div&gt;
+&lt;div&gt;2&lt;/div&gt;
+&lt;div&gt;3&lt;/div&gt;
+&lt;div&gt;4&lt;/div&gt;
+&lt;div&gt;5&lt;/div&gt;
+&lt;div&gt;6&lt;/div&gt;
+&lt;div&gt;7&lt;/div&gt;
+&lt;div&gt;8&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-7-small-4</h3>
+    <p class="mbm">Une grille de 7 colonnes sur grand écran, et 4 colonnes sur écran moyen. Quelques enfants changent de
+        taille sur écran
+        moyen</p>
+    <section class="grid-7-small-4">
+        <div>1</div>
+        <div>2</div>
+        <div class="col-2-small-1">.col-2-small-1</div>
+        <div>4</div>
+        <div>5</div>
+        <div class="col-1-small-2">.col-1-small-2</div>
+        <div>7</div>
+        <div class="col-2-small-all">.col-2-small-all</div>
+    </section>
+    <pre><code>&lt;section class="grid-7-small-4"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div class="col-2-small-1"&gt;.col-2-small-1&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div class="col-1-small-2"&gt;.col-1-small-2&lt;/div&gt;
+    &lt;div&gt;7&lt;/div&gt;
+    &lt;div class="col-2-small-all"&gt;.col-2-small-all&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3 class="sg-title">.grid-6-small-3 .has-gutter</h3>
+    <p class="mbm">Panachage des possibilités de grilles</p>
+    <section class="grid-6-small-3 has-gutter">
+        <div>1</div>
+        <div>2</div>
+        <div class="item-first">(3) item-first</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div class="col-3-small-2">col-3-small-2</div>
+        <div class="col-2-small-1">col-2-small-1</div>
+        <div class="col-2-small-1">col-2-small-1</div>
+        <div class="col-4-small-2">col-4-small-2</div>
+        <div class="row-2">row-2</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div class="col-3">col-3</div>
+        <div>18</div>
+        <div>19</div>
+        <div class="col-all">col-all</div>
+    </section>
+    <pre><code>&lt;section class="grid-6-small-3 has-gutter"&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div class="item-first"&gt;(3) item-first&lt;/div&gt;
+  &lt;div&gt;4&lt;/div&gt;
+  &lt;div&gt;5&lt;/div&gt;
+  &lt;div&gt;6&lt;/div&gt;
+  &lt;div&gt;7&lt;/div&gt;
+  &lt;div class="col-3-small-2"&gt;col-3-small-2&lt;/div&gt;
+  &lt;div class="col-2-small-1"&gt;col-2-small-1&lt;/div&gt;
+  &lt;div class="col-2-small-1"&gt;col-2-small-1&lt;/div&gt;
+  &lt;div class="col-4-small-2"&gt;col-4-small-2&lt;/div&gt;
+  &lt;div class="row-2"&gt;row-2&lt;/div&gt;
+  &lt;div&gt;13&lt;/div&gt;
+  &lt;div&gt;14&lt;/div&gt;
+  &lt;div&gt;15&lt;/div&gt;
+  &lt;div&gt;16&lt;/div&gt;
+  &lt;div class="col-3"&gt;col-3&lt;/div&gt;
+  &lt;div&gt;18&lt;/div&gt;
+  &lt;div&gt;19&lt;/div&gt;
+  &lt;div class="col-all"&gt;col-all&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</section>

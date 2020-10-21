@@ -1,0 +1,98 @@
+body {
+  margin: 2rem;
+
+  > nav {
+    margin-bottom: 4rem;
+    padding: 1rem;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      padding: .5rem 1rem;
+
+      &:hover {
+        color: yellow;
+      }
+    }
+  }
+}
+.sg-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-weight: normal;
+}
+h2.sg-title,
+h3.sg-title {
+  color: #CD4A47;
+}
+h2.sg-title {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, .9);
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    flex: 1 0 0;
+    border-bottom: 1px solid;
+    align-self: center;
+  }
+  &::before {
+    margin-right: 1rem;
+  }
+  &::after {
+    margin-left: 1rem;
+  }
+}
+.colors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 120px);
+  grid-auto-rows: 120px;
+  grid-gap: 3rem 1rem;
+  padding: 0;
+  list-style: none;
+
+  li span {
+    display: block;
+    height: 100px;
+    padding: 2px 4px;
+    border: 1px solid gray;
+  }
+}
+pre {
+  padding: 1em 1em 1em 1.5em;
+  background: #eee;
+}
+.align {
+  border: 1px dotted orange;
+  padding: 2rem 1rem;
+
+  > * {
+    padding: 1rem;
+    color: #fff;
+    background-color: darkmagenta;
+  }
+  > *+* {
+    background-color: orange;
+  }
+  > *+*+* {
+    background-color: chocolate;
+  }
+}
+[class*="grid-"] > div,
+.autogrid > div {
+  padding: 10px;
+  color: #fff;
+  background-color: olivedrab;
+}
+div[class*="col-"] {
+  background-color: darkmagenta;
+}
+div[class*="row-"] {
+  background-color: orange;
+}
+div.item-first {
+  background-color: tomato;
+}

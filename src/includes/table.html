@@ -1,0 +1,56 @@
+<section id="tables" class="mtl">
+    <h2 class="sg-title">tableaux</h2>
+    <p class="mbl">Les tableaux de données disposent de styles de base. Ceux munis d'une classe
+        <code>.table</code> bénéficient en sus de propriétés graphiques définies selon des variables de projet dédiées :
+        couleur de fond, des
+        titres, etc. La classe additionnelle
+        <code>.table--zebra</code> colorie une rangée sur deux.
+    </p>
+
+    <table class="table" summary="">
+        <caption>.table</caption>
+        <thead>
+        <tr>
+            <th scope="col">Fruit</th>
+            <th scope="col">Note</th>
+            <th scope="col">Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Kiwi</td>
+            <td>★★★</td>
+            <td>13.37€</td>
+        </tr>
+        <tr>
+            <td>Banane</td>
+            <td>★★</td>
+            <td>0.42€</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>Voici la structure HTML permettant d'obtenir ce résultat&nbsp;:</p>
+    <pre><code>&lt;table class="table" summary=""&gt;
+	&lt;caption&gt;.table&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th scope="col"&gt;Fruit&lt;/th&gt;
+			&lt;th scope="col"&gt;Note&lt;/th&gt;
+			&lt;th scope="col"&gt;Prix&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Kiwi&lt;/td&gt;
+			&lt;td&gt;★★★&lt;/td&gt;
+			&lt;td&gt;13.37€&lt;/td&gt;
+		&lt;/tr&gt;
+    &lt;tr&gt;
+			&lt;td&gt;Banane&lt;/td&gt;
+			&lt;td&gt;★★&lt;/td&gt;
+			&lt;td&gt;0.42€&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</section>

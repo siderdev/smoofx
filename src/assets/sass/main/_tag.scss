@@ -1,0 +1,31 @@
+/* ----------------------------- */
+/* ==SMOOFX tag overwrite          */
+/* ----------------------------- */
+
+.tag {
+  padding: $spacer-small $spacer-medium-plus;
+  font-weight: bold;
+  border-radius: $border-radius-normal;
+}
+
+.tag {
+  @each $name, $background-color, $color, $border in $variants-list {
+    &--#{$name} {
+      @extend .tag;
+      background-color: #fff;
+      color: $background-color;
+      box-shadow: $border;
+      border: 2px solid $background-color;
+    }
+  }
+
+  &--small {
+    padding: $spacer-tiny-plus $spacer-medium;
+    border-radius: $border-radius-small;
+  }
+
+  &--big {
+    padding: $spacer-small-plus $spacer-large;
+    border-radius: $border-radius-big;
+  }
+}

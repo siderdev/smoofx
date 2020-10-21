@@ -1,0 +1,53 @@
+/* ----------------------------- */
+/* ==SMOOFX helpers                */
+/* ----------------------------- */
+
+.bg-white {
+  background-color: $white;
+}
+.bg-gray {
+  background-color: $gray;
+}
+$intensity: (
+        100     : $gray-100,
+        200     : $gray-200,
+        300     : $gray-300,
+        400     : $gray-400,
+        500     : $gray-500,
+        600     : $gray-600,
+        700     : $gray-700,
+        800     : $gray-800,
+        900     : $gray-900,
+        lightest: $gray-lightest,
+        light   : $gray-light,
+        dark    : $gray-dark
+);
+@each $val, $var in $intensity {
+  .bg-gray-#{$val} {
+    background-color: #{$var};
+  }
+  .color-gray-#{$val} {
+    color: #{$var};
+  }
+}
+$colors: (
+  black    : $black,
+  brand    : $color-brand,
+  primary  : $color-primary,
+  success  : $color-success,
+  info     : $color-info,
+  warning  : $color-warning,
+  danger   : $color-danger,
+  inverse  : $color-inverse,
+  ghost    : $color-ghost,
+  muted    : $color-muted,
+  comflower: $color-comflower
+);
+@each $name, $var in $colors {
+  .bg-#{$name} {
+    background-color: #{$var};
+  }
+  .color-#{$name} {
+    color: #{$var}
+  }
+}

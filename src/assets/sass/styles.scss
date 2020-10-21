@@ -1,0 +1,25 @@
+/*!
+* SMOOFX (february, 2020) @author: pole web sider
+*/
+
+// Variables
+@import "_config/_variables";
+
+// Mixins
+@import "_config/_mixins";
+
+
+// KNACSS imports
+// -----------------
+@import "knacss";
+
+// VENDOR imports
+@import "bootstrap/_collapse.scss";
+@import "bootstrap/_modal.scss";
+@import "bootstrap/_tooltip.scss";
+
+// SMOOFX imports
+// -----------------
+@import "main/_helpers.scss";
+@import "main/_button.scss";
+@import "main/_tag.scss";

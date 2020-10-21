@@ -1,0 +1,49 @@
+/* ----------------------------- */
+/* ==SMOOFX button overwrite       */
+/* ----------------------------- */
+
+%btn-overwrite {
+  padding: $spacer-small-plus $spacer-large;
+  font-weight: bold;
+  border-radius: $border-radius-normal;
+}
+
+.btn,
+.button {
+  @extend %btn-overwrite;
+}
+
+.btn,
+.button {
+  @each $name, $background-color, $color, $border in $variants-list {
+    &--#{$name} {
+      @extend %btn-overwrite;
+    }
+  }
+}
+
+.btn,
+.button {
+  &--small {
+    padding: $spacer-small $spacer-medium-plus;
+    font-size: .8em;
+    border-radius: $border-radius-small;
+  }
+
+  &--big {
+    padding: $spacer-medium $spacer-large-plus;
+    font-size: 1.4em;
+    border-radius: $border-radius-big;
+  }
+}
+
+@each $name, $background-color, $color, $border in $variants-list {
+  a.btn--#{$name},
+  a.button--#{$name} {
+    color: #fff;
+
+    &:hover {
+      color: darken(#fff, 15%);
+    }
+  }
+}

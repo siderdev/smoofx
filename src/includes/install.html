@@ -1,0 +1,43 @@
+<section id="install" class="mtl">
+    <h2 class="sg-title">installation</h2>
+    <p>Il y a deux moyens d'installer Smoofx&nbsp;: la version "prêt à consommer" et la version "à compiler". Seule la
+        deuxième est configurable.<br>Smoofx nécessite <a href="assets/js/jquery.min.js">jQuery</a> v3.4.1 minimum.</p>
+    <h3 class="sg-title">version "prêt à consommer"</h3>
+    <p>Cette version n'est pas configurable et nécessite d'être utiliser telle quel.</p>
+    <p>Smoofx n'est constitué que d'un seul fichier CSS et d'un seul fichier JS&nbsp;:</p>
+    <ul>
+        <li>le <a href="assets/css/styles.min.css">CSS minifiée</a></li>
+        <li>et le <a href="assets/js/global.min.js">JS minifiée</a></li>
+    </ul>
+
+    <p>Pour information, Autoprefixer est activé sur cette version de KNACSS et la liste des navigateurs supportés
+        (Browserslist) est&nbsp;</p>
+    <pre><code>[
+      '&gt; 1%',
+      'last 2 versions',
+      'IE &gt;= 10', 'Edge &gt;= 16',
+      'Chrome &gt;= 60',
+      'Firefox &gt;= 50', 'Firefox ESR',
+      'Safari &gt;= 10',
+      'ios_saf &gt;= 10',
+      'Android &gt;= 5'];</code></pre>
+
+
+    <h3 class="sg-title">version "à compiler"</h3>
+    <p>Le fichier source principal est
+        <code>src/assets/sass/styles.scss</code>, c'est lui qui se charge de l'import des vendors, variables, mixins et
+        tous les fichiers de styles du projet. C'est ce fichier qu'il faut compiler.</p>
+    <p>KNACSS est compiler avec Gulp (les fichiers
+        <code>gulpfile.js</code> et
+        <code>package.json</code> sont fournis).</p>
+    <div class="alert--primary">
+        <p>Les fichiers de configuration
+            <i>_config/_variables.scss</i> et
+            <i>_config/_mixins.scss</i> devront être copiés dans votre propre dossier de travail (et modifiés avec vos
+            propres valeurs) afin de ne pas être écrasés lors de chaque mise à jour de KNACSS via NPM.</p>
+    </div>
+    <p>KNACSS fourni un
+        <a href="https://www.knacss.com/assets/pdf/knacss7-cheatsheet.pdf">
+            <strong>Pense-bête en PDF</strong>
+        </a> pour vous souvenir des classes utiles.</p>
+</section>

@@ -1,0 +1,75 @@
+<section id="mixins" class="mtl">
+    <h2 class="sg-title">mixins</h2>
+    <p>Le fichier regroupant les mixins et fonctions Sass se nomme
+        <code>sass/_config/_mixins.scss</code>. Il contient des raccourcis Sass qui facilitent la vie de l'intégrateur.
+    </p>
+
+    <h3 class="sg-title">mixin "respond-to()"</h3>
+    <p>Ce mixin permet de faciliter et d'harmoniser les points de ruptures. Écrivez ceci dans votre fichier Sass&nbsp;:
+    </p>
+    <pre><code>p {
+  color: blue;
+  @include respond-to("small-up") {
+    color: hotpink;
+  }
+}</code></pre>
+    <p>Le résultat après compilation sera&nbsp;:</p>
+    <pre><code>p {
+  color: blue;
+}
+@media (min-width: 576px) {
+  p {
+    color: hotpink;
+  }
+}</code></pre>
+    <p>Les paramètres et les intervales correspondants sont&nbsp;:</p>
+    <pre><code>$bp-aliases: (
+  'tiny'   : (max-width: #{$tiny - 1}),
+  'small'  : (max-width: #{$small - 1}),
+  'medium' : (max-width: #{$medium - 1}),
+  'large' : (max-width: #{$large - 1}),
+  'extra-large'  : (max-width: #{$extra-large - 1}),
+  'tiny-up'   : (min-width: #{$tiny}),
+  'small-up'  : (min-width: #{$small}),
+  'medium-up' : (min-width: #{$medium}),
+  'large-up' : (min-width: #{$large}),
+  'extra-large-up' : (min-width: #{$extra-large}),
+  'retina' : (min-resolution: 2dppx)
+);</code></pre>
+
+    <h3 class="sg-title">mixin "grid()"</h3>
+    <p>Ce mixin de trois paramètres optionnels permet de générer une grille simple et rapide. Écrivez ceci dans votre
+        fichier
+        Sass&nbsp;:</p>
+    <pre><code>.ingrid {
+  @include grid(4, 1rem, 640px);
+}</code></pre>
+    <p>Le résultat après compilation sera&nbsp;:</p>
+    <pre><code>@media (min-width: 640px) {
+  .ingrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
+}
+</code></pre>
+
+    <h3 class="sg-title">mixin "font-size()"</h3>
+    <p>Ce mixin permet de gérer les tailles d'éléments autant mobiles que desktop. Écrivez ceci dans votre fichier
+        Sass&nbsp;:</p>
+    <pre><code>h2 {
+  @include font-size(h2);
+}</code></pre>
+    <p>Le résultat après compilation sera&nbsp;:</p>
+    <pre><code>h2 {
+  font-size: 2.4rem;
+}
+@media (min-width: 576px) {
+  h2 {
+    font-size: 2.8rem;
+  }
+}</code></pre>
+    <p>Les éléments prévus pour être ciblés par ce mixin sont&nbsp;: base (police générale), h1, h2, h3, h4, h5 et h6.
+        Les valeurs
+        de polices de tous ces éléments sont indiquées dans le fichier de variables du projet.</p>
+</section>
